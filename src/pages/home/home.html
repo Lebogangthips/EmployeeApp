@@ -1,14 +1,73 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
 
-<ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
-</ion-content>
+
+    <ion-header>
+
+      <ion-navbar color='secondary'>
+        <ion-title>Employee</ion-title>
+      </ion-navbar>
+    
+    </ion-header><br><br>
+
+    <ion-content padding class="style">
+
+
+    <ion-list>
+
+      <ion-item class="form">
+        <ion-label floating>Name</ion-label>
+        <ion-input type="text" [(ngModel)]="Name"></ion-input>
+      </ion-item><br><br>
+
+      <ion-item class="form">
+        <ion-label floating>Surname</ion-label>
+        <ion-input type="text" [(ngModel)]="Surname"></ion-input>
+      </ion-item><br><br>
+
+      <ion-item class="form">
+        <ion-label floating>Identity Number</ion-label>
+        <ion-input type="text" [(ngModel)]="IdentityNumber"></ion-input>
+      </ion-item><br>
+
+      <ion-item class="form">
+        <ion-label floating>Role</ion-label>
+        <ion-input type="text" [(ngModel)]="Role"></ion-input>
+      </ion-item><br>
+    
+      <ion-item class="form">
+        <ion-label floating>Image</ion-label>
+        <ion-input type="file" [(ngModel)]="Image"></ion-input>
+      </ion-item><br><br>
+
+    </ion-list>
+
+    <div padding>
+      <button ion-button (click)=add()>add</button>
+    </div>
+
+ 
+   
+
+
+
+    <ion-list   *ngFor="let L of arr ; let i= index">
+  <ion-item>
+    <ion-avatar item-start>
+        <img src="{{L.Image}}">
+    </ion-avatar>
+
+    <h2>  {{L.Name}} {{L.Surname}} {{L.IdentityNumber}} {{L.Role}} </h2>
+
+
+    <!--Basic: auto-select the icon based on the platform -->
+  <ion-icon name="trash"(click)="Delete()"></ion-icon>
+
+  <!--Basic: auto-select the icon based on the platform -->
+<ion-icon name="build" (click)="Update(i)"></ion-icon>
+    
+  </ion-item>
+</ion-list>
+
+
+  
+
+
